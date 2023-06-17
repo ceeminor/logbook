@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: ./server
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+
+  client:
+    build:
+      context: ./client/logbook
+    volumes:
+      - react_build:/client/build
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:8080
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - react_build:/var/www/client
+    depends_on:
+      - api
+      - client
+
+  postgres:
+    container_name: postgres
+    image: postgres:15.1-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
+  react_build:
