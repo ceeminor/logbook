@@ -6,7 +6,7 @@ import '../../index.css';
 
 const Navigation = () => {
   return (
-    <Navbar collapseOnSelect bg="dark" variant="dark" expand="md">
+    <Navbar collapseOnSelect bg="primary" variant="dark" expand="md">
       <Container fluid>
         <Navbar.Brand className="nav-head" href="/">Logbook</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
