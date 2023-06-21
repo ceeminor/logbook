@@ -6,12 +6,12 @@ import (
 )
 
 type flight struct {
-	ID 			string	`json:"id"`
+	ID	string	`json:"id"`
 	Airline		string	`json:"airline"`
-	Aircraft	string 	`json:"aircraft"`
-	Departure   string	`json:"departure"`
-	Arrival     string	`json:"arrival"`
-	Date		string	`json:"date"`
+	Aircraft	string	`json:"aircraft"`
+	Departure	string	`json:"departure"`
+	Arrival	string	`json:"arrival"`
+	Date	string	`json:"date"`
 }
 
 func getFlights(context *gin.Context) {
