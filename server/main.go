@@ -1,24 +1,58 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
-	"log"
-
-	operations "logbook/utils"
+	"github.com/gin-gonic/gin"
 )
 
-func get(w http.ResponseWriter, r *http.Request) {
+type flight struct {
+	ID 			string	`json:"id"`
+	Airline		string	`json:"airline"`
+	Aircraft	string 	`json:"aircraft"`
+	Departure   string	`json:"departure"`
+	Arrival     string	`json:"arrival"`
+	Date		string	`json:"date"`
+}
 
-	logbook_data := operations.GetFlights()
+func getFlights(context *gin.Context) {
+	// Once implemented, these values will come from the database
+	var dbID = "1"
+	var dbAirline = "Airline"
+	var dbAircraft = "Aircraft"
+	var dbDeparture = "Departure"
+	var dbArrival = "Arrival"
+	var dbDate = "Date"
 
-	fmt.Fprint(w, logbook_data)
+	var flights = []flight {
+		{
+			ID: dbID,
+			Airline: dbAirline,
+			Aircraft: dbAircraft,
+			Departure: dbDeparture,
+			Arrival: dbArrival,
+			Date: dbDate,
+		},
+	}
+	context.IndentedJSON(http.StatusOK, flights)
+}
+
+func addFlight(context *gin.Context) {
+	var newFlight flight
+
+	if err := context.BindJSON(&newFlight); err != nil {
+		return
+	}
+
+	// add flight to the database
+
+	context.IndentedJSON(http.StatusCreated, newFlight)
 }
 
 func main() {
-	mux := http.NewServeMux()
+	router := gin.Default()
 
-	mux.HandleFunc("/api/get_flights", get)
+	router.GET("/api/flights", getFlights)
+	router.POST("/api/add", addFlight)
 
-	log.Fatal(http.ListenAndServe(":8080", mux))
+	router.Run("localhost:8080")
 }
