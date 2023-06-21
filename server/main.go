@@ -3,13 +3,22 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"log"
+
+	operations "logbook/utils"
 )
 
-func handlerFunc(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Welcome")
+func get(w http.ResponseWriter, r *http.Request) {
+
+	logbook_data := operations.GetFlights()
+
+	fmt.Fprint(w, logbook_data)
 }
 
 func main() {
-	http.HandleFunc("/api", handlerFunc)
-	http.ListenAndServe(":8080", nil)
+	mux := http.NewServeMux()
+
+	mux.HandleFunc("/api/get_flights", get)
+
+	log.Fatal(http.ListenAndServe(":8080", mux))
 }
