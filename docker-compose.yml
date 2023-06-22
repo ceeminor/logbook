@@ -3,9 +3,13 @@ version: '3.9'
 services:
   api:
     build:
-      context: ./server
+      context: ./api
     ports:
-      - 8080:8080
+      - 3000:3000
+    volumes:
+      - ./api:/app
+    env_file:
+      - .env
     depends_on:
       - postgres
 
@@ -31,8 +35,9 @@ services:
     image: postgres:15.1-alpine
     restart: unless-stopped
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
     ports:
       - "5432:5432"
     volumes:
