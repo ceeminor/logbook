@@ -4,6 +4,8 @@ LABEL author="Chris Minor <chris.c.minor@gmail.com>"
 
 WORKDIR /app
 
+RUN apk --no-cache add curl
+
 COPY . .
 RUN go mod tidy
 
