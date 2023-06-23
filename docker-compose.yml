@@ -42,7 +42,7 @@ services:
     volumes:
       - "C:/logbook_database:/var/lib/postgresql/data"
     healthcheck:
-      test: ["CMD", "pg_isready", "-d", "postgres", "-U", "user", "-p", "5432", "-h", "postgres"]
+      test: ["CMD", "pg_isready", "-d", "${DB_NAME}", "-U", "${DB_USER}", "-p", "5432", "-h", "postgres"]
       interval: 5s
       timeout: 1s
       retries: 10
