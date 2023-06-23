@@ -1,5 +1,7 @@
 FROM golang:1.20-alpine
 
+LABEL author="Chris Minor <chris.c.minor@gmail.com>"
+
 WORKDIR /app
 
 COPY . .

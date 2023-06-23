@@ -11,5 +11,6 @@ type Flight struct {
 	Aircraft string `json:"aircraft" gorm:"text;not null;default:null"`
 	Departure string `json:"departure" gorm:"text;not null;default:null"`
 	Arrival string `json:"arrival" gorm:"text;not null;default:null"`
+	Duration float64 `json:"duration" gorm:"default:null"`
 	Date string `json:"date" gorm:"text;not null;default:null"`
 }

@@ -5,14 +5,16 @@ services:
     build:
       context: ./api
     ports:
-      - 3000:3000
+      - 8000:8000
     volumes:
       - ./api:/app
     env_file:
       - .env
+    restart: unless-stopped
     depends_on:
-      - postgres
-
+      postgres:
+        condition: service_healthy
+  
   client:
     build:
       context: ./client/logbook
@@ -26,9 +28,6 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - react_build:/var/www/client
-    depends_on:
-      - api
-      - client
 
   postgres:
     container_name: postgres
@@ -41,10 +40,13 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - "C:/logbook_database:/var/lib/postgresql/data"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "postgres", "-U", "user", "-p", "5432", "-h", "postgres"]
+      interval: 5s
+      timeout: 1s
+      retries: 10
 
 volumes:
-  postgres_data:
-    name: postgres_data
   react_build:
     name: react_build

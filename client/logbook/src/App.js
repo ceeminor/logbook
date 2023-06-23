@@ -1,8 +1,8 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Home from './pages/home/Home';
 import Flights from './pages/flights/Flights'
+import Home from './pages/home/Home'
 import Error from './pages/error/Error';
 import NotFound from './pages/notfound/NotFound';
 import Navigation from './pages/global/Navigation';

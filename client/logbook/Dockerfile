@@ -1,5 +1,6 @@
 FROM node:alpine
-LABEL author="chris.c.minor@gmail.com"
+
+LABEL author="Chris Minor <chris.c.minor@gmail.com>"
 
 WORKDIR /client
 

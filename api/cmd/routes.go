@@ -8,6 +8,7 @@ import (
 
 func Routes(app *fiber.App) {
 	app.Get("/api", handlers.Home)
+	app.Get("/api/health_check", handlers.HealthCheck)
 	app.Get("/api/flights", handlers.GetFlights)
 	app.Post("/api/add", handlers.AddFlight)
 	app.Delete("/api/delete/:id", handlers.DeleteFlight)

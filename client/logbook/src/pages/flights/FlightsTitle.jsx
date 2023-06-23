@@ -7,7 +7,7 @@ import '../../index.css';
 const FlightsTitle = () => {
     
     return (
-        <Container fluid>
+        <Container>
             <Row className="text-center mt-4 mb-4">
                 <Col className="px-5">
                     <Row className="d-flex justify-content-center header-title mb-4 text-center">
