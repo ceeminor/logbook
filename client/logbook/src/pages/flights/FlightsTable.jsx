@@ -20,6 +20,7 @@ const FlightsTable = (props) => {
                             'Arrival',
                             'Duration',
                             'Date',
+                            'Remarks',
                             'Action',
                         ].map((column) => (
                         <th>{column}</th>
@@ -36,6 +37,7 @@ const FlightsTable = (props) => {
                                 <td>{flight.arrival}</td>
                                 <td>{flight.duration}</td>
                                 <td>{flight.date}</td>
+                                <td>{flight.remarks}</td>
                                 <td>
                                     <BiTrash 
                                         className="admin-icons ms-1 me-1" 
@@ -60,6 +62,7 @@ const FlightsTable = (props) => {
                             'Arrival',
                             'Duration',
                             'Date',
+                            'Remarks',
                             'Action',
                         ].map((column) => (
                         <th>{column}</th>
@@ -68,7 +71,7 @@ const FlightsTable = (props) => {
                     </thead>
                     <tbody>
                         <tr className="text-center">
-                            <td colSpan={8}>No flights in database</td>
+                            <td colSpan={9}>No flights in database</td>
                         </tr>
                     </tbody>
                 </Table>

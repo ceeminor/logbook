@@ -13,4 +13,5 @@ type Flight struct {
 	Arrival string `json:"arrival" gorm:"text;not null;default:null"`
 	Duration float64 `json:"duration" gorm:"default:null"`
 	Date string `json:"date" gorm:"text;not null;default:null"`
+	Remarks string `json:"remarks" gorm:"default:null"`
 }
