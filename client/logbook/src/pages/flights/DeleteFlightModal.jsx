@@ -19,7 +19,7 @@ const DeleteFlightModal = (props) => {
             </Modal.Header>
             <Modal.Body>
                 <p>
-                    Are you sure you want to delete {props.current_flight.airline} {props.current_flight.flightnumber}?
+                    Are you sure you want to delete {props.current_flight.airline}{props.current_flight.flightnumber}?
                 </p>
             </Modal.Body>
             <Modal.Footer>
