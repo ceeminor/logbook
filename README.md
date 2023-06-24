@@ -10,3 +10,13 @@ docker-compose up
 ```
 
 3. Go to http://127.0.0.1:80
+
+## Screenshots
+
+![Home](screenshots/home.png)
+
+![Flights](screenshots/flights.png)
+
+![Add Flight](screenshots/add.png)
+
+![Delete](screenshots/delete.png)
