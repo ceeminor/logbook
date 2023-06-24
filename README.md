@@ -1,4 +1,7 @@
-# logbook
+# Logbook
+
+## Description
+- Logbook is a web app for tracking flights flown on flight simulator. Logbook can be run locally with database data persisted to a local volume, allowing long-term storage of logged flights that are populated each time the app is started.
 
 ### To Run Locally
 
