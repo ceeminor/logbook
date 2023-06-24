@@ -13,10 +13,10 @@
 
 ## Screenshots
 
-![Home](screenshots/home.png)
+![Home](./screenshots/home.png)
 
-![Flights](screenshots/flights.png)
+![Flights](./screenshots/flights.png)
 
-![Add Flight](screenshots/add.png)
+![Add Flight](./screenshots/add.png)
 
-![Delete](screenshots/delete.png)
+![Delete](./screenshots/delete.png)
