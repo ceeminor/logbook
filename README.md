@@ -13,8 +13,6 @@
 
 ## Screenshots
 
-![Home](screenshots/home.jpg)
-
 ![Flights](screenshots/flights.jpg)
 
 ![Add Flight](screenshots/add.jpg)
