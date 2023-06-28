@@ -27,7 +27,7 @@ const Flights = () => {
         data.forEach((flight, index) => {
             total += flight.duration
         });
-        return total;
+        return total.toFixed(1);
     }
 
     let getFlights = async () => {
