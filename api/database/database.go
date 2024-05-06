@@ -31,9 +31,9 @@ func ConnectDb() {
 	})
 
 	if err != nil {
-        log.Fatalf("Database connection failed: %v", err)
+		log.Fatalf("Database connection failed: %v", err)
 		os.Exit(2)
-    }
+	}
 
 	log.Println("Database connection OK")
 	db.Logger = logger.Default.LogMode(logger.Info)
