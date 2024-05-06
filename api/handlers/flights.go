@@ -26,7 +26,7 @@ func AddFlight(c *fiber.Ctx) error {
 	flight := new(models.Flight)
 
 	if err := c.BodyParser(flight); err != nil {
-        return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map {
+        	return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map {
 			"error": err.Error(),
 		})
     }
@@ -40,15 +40,14 @@ func DeleteFlight(c *fiber.Ctx) error {
 	id := c.Params("id")
 	
 	var flight models.Flight
-    result := database.DB.Db.Delete(&flight, id)
+    	result := database.DB.Db.Delete(&flight, id)
 
 	if result.Error != nil {
-        return c.Status(fiber.StatusInternalServerError).SendString("Error deleting flight.")
-    }
+		return c.Status(fiber.StatusInternalServerError).SendString("Error deleting flight.")
+	}
 
-    if result.RowsAffected == 0 {
-        return c.Status(fiber.StatusInternalServerError).SendString("Flight was not found in database.")
-    }
-
-	return c.Status(200).SendString("Successfully deleted flight.")
+	if result.RowsAffected == 0 {
+		return c.Status(fiber.StatusInternalServerError).SendString("Flight was not found in database.")
+	}
+		return c.Status(200).SendString("Successfully deleted flight.")
 }
