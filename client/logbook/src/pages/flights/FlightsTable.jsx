@@ -28,7 +28,7 @@ const FlightsTable = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {props.flights.map((flight, index) => (
+                        {props.flights.toReversed().map((flight, index) => (
                             <tr className="text-center">
                                 <td>{flight.airline}</td>
                                 <td>{flight.flightnumber}</td>
